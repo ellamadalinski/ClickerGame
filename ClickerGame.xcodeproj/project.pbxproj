@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B618BCF027E251D2005B0CEF /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618BCEF27E251D2005B0CEF /* HighScoresViewController.swift */; };
+		B6C886F527E3654E00813464 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C886F427E3654E00813464 /* Game.swift */; };
 		B6CC53C527DF7D580021BE01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC53C427DF7D580021BE01 /* AppDelegate.swift */; };
 		B6CC53C727DF7D580021BE01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC53C627DF7D580021BE01 /* SceneDelegate.swift */; };
 		B6CC53C927DF7D580021BE01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC53C827DF7D580021BE01 /* ViewController.swift */; };
@@ -14,9 +16,17 @@
 		B6CC53CF27DF7D580021BE01 /* ClickerGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6CC53CD27DF7D580021BE01 /* ClickerGame.xcdatamodeld */; };
 		B6CC53D127DF7D5B0021BE01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6CC53D027DF7D5B0021BE01 /* Assets.xcassets */; };
 		B6CC53D427DF7D5B0021BE01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CC53D227DF7D5B0021BE01 /* LaunchScreen.storyboard */; };
+		B6CC53DC27DF7DDA0021BE01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6CC53DB27DF7DDA0021BE01 /* GoogleService-Info.plist */; };
+		B6CC53DF27DF7E8B0021BE01 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B6CC53DE27DF7E8B0021BE01 /* FirebaseAnalytics */; };
+		B6CC53E127DF7E8B0021BE01 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B6CC53E027DF7E8B0021BE01 /* FirebaseAuth */; };
+		B6CC53E327DF7E8B0021BE01 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B6CC53E227DF7E8B0021BE01 /* FirebaseDatabase */; };
+		B6CC53E527DF7E8B0021BE01 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B6CC53E427DF7E8B0021BE01 /* FirebaseFirestore */; };
+		B6EB053527E0C11B003E6F6D /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = B6EB053427E0C11B003E6F6D /* FirebaseFirestoreSwift-Beta */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B618BCEF27E251D2005B0CEF /* HighScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
+		B6C886F427E3654E00813464 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		B6CC53C127DF7D580021BE01 /* ClickerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClickerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6CC53C427DF7D580021BE01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6CC53C627DF7D580021BE01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +36,7 @@
 		B6CC53D027DF7D5B0021BE01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6CC53D327DF7D5B0021BE01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6CC53D527DF7D5B0021BE01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6CC53DB27DF7DDA0021BE01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +44,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CC53E327DF7E8B0021BE01 /* FirebaseDatabase in Frameworks */,
+				B6CC53E527DF7E8B0021BE01 /* FirebaseFirestore in Frameworks */,
+				B6EB053527E0C11B003E6F6D /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				B6CC53DF27DF7E8B0021BE01 /* FirebaseAnalytics in Frameworks */,
+				B6CC53E127DF7E8B0021BE01 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +60,7 @@
 			children = (
 				B6CC53C327DF7D580021BE01 /* ClickerGame */,
 				B6CC53C227DF7D580021BE01 /* Products */,
+				B6EB053327E0C11B003E6F6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,13 +78,23 @@
 				B6CC53C427DF7D580021BE01 /* AppDelegate.swift */,
 				B6CC53C627DF7D580021BE01 /* SceneDelegate.swift */,
 				B6CC53C827DF7D580021BE01 /* ViewController.swift */,
+				B6C886F427E3654E00813464 /* Game.swift */,
 				B6CC53CA27DF7D580021BE01 /* Main.storyboard */,
+				B618BCEF27E251D2005B0CEF /* HighScoresViewController.swift */,
 				B6CC53D027DF7D5B0021BE01 /* Assets.xcassets */,
 				B6CC53D227DF7D5B0021BE01 /* LaunchScreen.storyboard */,
 				B6CC53D527DF7D5B0021BE01 /* Info.plist */,
 				B6CC53CD27DF7D580021BE01 /* ClickerGame.xcdatamodeld */,
+				B6CC53DB27DF7DDA0021BE01 /* GoogleService-Info.plist */,
 			);
 			path = ClickerGame;
+			sourceTree = "<group>";
+		};
+		B6EB053327E0C11B003E6F6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +113,13 @@
 			dependencies = (
 			);
 			name = ClickerGame;
+			packageProductDependencies = (
+				B6CC53DE27DF7E8B0021BE01 /* FirebaseAnalytics */,
+				B6CC53E027DF7E8B0021BE01 /* FirebaseAuth */,
+				B6CC53E227DF7E8B0021BE01 /* FirebaseDatabase */,
+				B6CC53E427DF7E8B0021BE01 /* FirebaseFirestore */,
+				B6EB053427E0C11B003E6F6D /* FirebaseFirestoreSwift-Beta */,
+			);
 			productName = ClickerGame;
 			productReference = B6CC53C127DF7D580021BE01 /* ClickerGame.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +148,9 @@
 				Base,
 			);
 			mainGroup = B6CC53B827DF7D580021BE01;
+			packageReferences = (
+				B6CC53DD27DF7E8B0021BE01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = B6CC53C227DF7D580021BE01 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -131,6 +168,7 @@
 				B6CC53D427DF7D5B0021BE01 /* LaunchScreen.storyboard in Resources */,
 				B6CC53D127DF7D5B0021BE01 /* Assets.xcassets in Resources */,
 				B6CC53CC27DF7D580021BE01 /* Main.storyboard in Resources */,
+				B6CC53DC27DF7DDA0021BE01 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6CC53C927DF7D580021BE01 /* ViewController.swift in Sources */,
+				B6C886F527E3654E00813464 /* Game.swift in Sources */,
 				B6CC53C527DF7D580021BE01 /* AppDelegate.swift in Sources */,
+				B618BCF027E251D2005B0CEF /* HighScoresViewController.swift in Sources */,
 				B6CC53C727DF7D580021BE01 /* SceneDelegate.swift in Sources */,
 				B6CC53CF27DF7D580021BE01 /* ClickerGame.xcdatamodeld in Sources */,
 			);
@@ -364,6 +404,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B6CC53DD27DF7E8B0021BE01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B6CC53DE27DF7E8B0021BE01 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6CC53DD27DF7E8B0021BE01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		B6CC53E027DF7E8B0021BE01 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6CC53DD27DF7E8B0021BE01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		B6CC53E227DF7E8B0021BE01 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6CC53DD27DF7E8B0021BE01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		B6CC53E427DF7E8B0021BE01 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6CC53DD27DF7E8B0021BE01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		B6EB053427E0C11B003E6F6D /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6CC53DD27DF7E8B0021BE01 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B6CC53CD27DF7D580021BE01 /* ClickerGame.xcdatamodeld */ = {
