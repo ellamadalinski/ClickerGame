@@ -13,7 +13,6 @@ import CoreData
 class ViewController: UIViewController {
     
     let database = Firestore.firestore()
-    var personalHighScores : [Game] = []
     var timer = Timer()
     var date = Date()
     var timeNumber = 20.00
@@ -39,18 +38,26 @@ class ViewController: UIViewController {
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
             
-            var newScore = Game(s: score, d: date)
-            personalHighScores.append(newScore)
-            personalHighScores.sort(by: {$0.score > $1.score})
-            for game in personalHighScores {
-                print(game.score)
-            }
+            let dateNow = date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM.dd.yyyy"
+            let result = dateFormatter.string(from: dateNow)
+            
+            var newScore = Game(s: score, d: result)
+            Statics.personalHighScores.append(newScore)
+            Statics.personalHighScores.sort(by: {$0.score > $1.score})
+//            for game in Statics.personalHighScores {
+//                print(game.score)
+//            }
+            Statics.overallHighScores.append(newScore)
+            Statics.overallHighScores.sort(by: {$0.score > $1.score})
+            writeData(games: Statics.overallHighScores)
         }
     }
     
-    func writeData(text: String){
+    func writeData(games: [Game]){
         let docRef = database.document("player/score")
-        docRef.setData(["self": personalHighScores])
+        docRef.setData(["self": games[0]])
     }
     
     

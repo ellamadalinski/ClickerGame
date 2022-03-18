@@ -6,12 +6,17 @@
 //
 
 import Foundation
-public class Game{
+public class Game : Codable{
     var score : Int
-    var date : Date
+    var date : String
 
-    init(s:Int, d:Date){
+    init(s:Int, d: String){
         score = s
         date = d
     }
+}
+
+public class Statics : Codable {
+    static var personalHighScores : [Game] = []
+    static var overallHighScores : [Game] = []
 }
