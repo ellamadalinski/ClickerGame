@@ -9,6 +9,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import CoreData
+import CoreAudio
 
 class ViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class ViewController: UIViewController {
     var date = Date()
     var timeNumber = 20.00
     var score = 0
+    var name = ""
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -34,30 +36,62 @@ class ViewController: UIViewController {
             timeLabel.text = "00:0.00"
             
             let alert = UIAlertController(title: "Game Over", message: "You scored \(score) points", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addTextField { (textField) in
+                textField.placeholder = "Name"
+            }
+            let okAction = UIAlertAction(title: "Ok", style: .default){
+                [weak alert] _ in
+                guard let textFields = alert?.textFields
+                else { return }
+                
+                if let text = textFields[0].text {
+                    self.name = text
+                }
+                
+                Statics.top10.append(self.score)
+                Statics.top10.sort()
+                Statics.top10.reverse()
+                if let index = Statics.top10.firstIndex(of: self.score){
+                    Statics.top10Names.insert(self.name, at: index)
+                }
+                if Statics.top10.count > 10{
+                    Statics.top10.removeLast()
+                    Statics.top10Names.removeLast()
+                }
+                self.writeArrayData(scores: Statics.top10)
+                self.writeStringData(names: Statics.top10Names)
+            }
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
+            
             
             let dateNow = date
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM.dd.yyyy"
             let result = dateFormatter.string(from: dateNow)
             
-            var newScore = Game(s: score, d: result)
-            Statics.personalHighScores.append(newScore)
-            Statics.personalHighScores.sort(by: {$0.score > $1.score})
-//            for game in Statics.personalHighScores {
-//                print(game.score)
+//            Statics.top10.append(score)
+//            Statics.top10.sort()
+//            if let index = Statics.top10.firstIndex(of: score){
+//                Statics.top10Names.insert(name, at: index)
 //            }
-            Statics.overallHighScores.append(newScore)
-            Statics.overallHighScores.sort(by: {$0.score > $1.score})
-            writeData(games: Statics.overallHighScores)
+//            if Statics.top10.count > 10{
+//                Statics.top10.removeLast()
+//                Statics.top10Names.removeLast()
+//            }
+//            writeArrayData(scores: Statics.top10)
+//            writeStringData(names: Statics.top10Names)
         }
     }
     
-    func writeData(games: [Game]){
-        let docRef = database.document("player/score")
-        docRef.setData(["self": games[0]])
+    func writeArrayData(scores : [Int]){
+        let docRef = database.document("player/game")
+        docRef.setData(["score": scores])
+    }
+    
+    func writeStringData(names : [String]){
+        let docRef = database.document("player/user")
+        docRef.setData(["name": names])
     }
     
     
@@ -78,6 +112,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func restartButtonAction(_ sender: UIButton) {
+        timer.invalidate()
         timeNumber = 20.00
         timeLabel.text = "00:20.00"
         score = 0

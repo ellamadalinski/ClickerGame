@@ -18,5 +18,6 @@ public class Game : Codable{
 
 public class Statics : Codable {
     static var personalHighScores : [Game] = []
-    static var overallHighScores : [Game] = []
+    static var top10 : [Int] = []
+    static var top10Names : [String] = []
 }
