@@ -26,6 +26,34 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let docRef = database.document("player/game")
+        docRef.getDocument { snapshot, error in
+            guard let data = snapshot?.data(), error == nil
+            else {
+                return
+            }
+        
+            guard let scores = data["score"] as? [Int] else{
+                return
+            }
+            Statics.top10 = scores
+            //self.overallTableViewOutlet.reloadData()
+        }
+        let docRef2 = database.document("player/user")
+        docRef2.getDocument { snapshot, error in
+            guard let data = snapshot?.data(), error == nil
+            else {
+                return
+            }
+        
+            guard let names = data["name"] as? [String] else{
+                return
+            }
+        
+            Statics.top10Names = names
+            //self.overallTableViewOutlet.reloadData()
+        }
     }
     
     @objc func update(){
